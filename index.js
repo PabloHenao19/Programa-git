@@ -20,6 +20,9 @@ const rowProduct = document.querySelector('.row-product')
     const valorTotal = document.querySelector('.total-pagar')
     const countProduct = document.querySelector ('#contador-productos')
 
+    const cartEmpty = document.querySelector('.cart-empty');
+    const cartTotal = document.querySelector('.cart-total');
+
 
 
 // evento de agrecar los productos
@@ -75,11 +78,17 @@ const rowProduct = document.querySelector('.row-product')
 
     //Función para mostrar HTML
 
-    const showHTML = () => {;
+    const showHTML = () => {
 
-        if (!allProduct.length){
-            containerCartProduct.innerHTML = `<p class= "Cart-empty"> SOY UN LOQUITO </p>`;
-        } 
+        if (!allProduct.length) {
+            cartEmpty.classList.remove('hidden');
+            rowProduct.classList.add('hidden');
+            cartTotal.classList.add('hidden');
+        } else {
+            cartEmpty.classList.add('hidden');
+            rowProduct.classList.remove('hidden');
+            cartTotal.classList.remove('hidden');
+        }
 
         // Limpiar html
 
